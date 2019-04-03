@@ -3,6 +3,10 @@ html,body{
     height: 100%;
 }
 
+.pile{
+    display: flex;
+}
+
 .deck{
     display: flex;
     flex-wrap: wrap;
@@ -11,6 +15,7 @@ html,body{
 }
 
 .card{
+    cursor: pointer;
     height: 240px;
     width: 140px;
     font-size: 200px;

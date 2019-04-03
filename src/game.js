@@ -5,6 +5,8 @@ class Game extends React.Component {
   constructor(props) {
     super(props);
     this.deck = new Deck();
+    this.availaleCard = this.deck.drawACard();
+    this.state = { availaleCard: this.availaleCard}
   }
 
   render() {
@@ -12,10 +14,16 @@ class Game extends React.Component {
   }
 
   createDeckView() {
-    return <div className="deck"> { this.deck.getDeck().map(card => {
-      const color = card.color;
-      return <div style={{"color":color}} className="card" >{card.unicode}</div>;
-    }) } </div>;
+    return <div className="deck"> { 
+        <div className="pile">
+            <div onClick={this.drawACard.bind(this)} className="card" >{"\u{1F0A0}"}</div>
+            <div className="card">{this.state.availaleCard.unicode}</div>
+       </div>
+    } </div>;
+  }
+
+  drawACard(){
+      return this.setState({ availaleCard: this.deck.drawACard()});
   }
 }
 
