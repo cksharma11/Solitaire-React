@@ -29,12 +29,21 @@ class Game extends React.Component {
           </div>
 
           <div className="flex-wrap">
-            <div id="pile1" className="card" />
-            <div id="pile2" className="card" />
-            <div id="pile3" className="card" />
-            <div id="pile4" className="card" />
+            <div id="suit1" className="card" />
+            <div id="suit2" className="card" />
+            <div id="suit3" className="card" />
+            <div id="suit4" className="card" />
           </div>
         </div>
+        <div class="piles-area">
+              <div id="pile1" className="pile-column"></div>
+              <div id="pile2" className="pile-column"></div>
+              <div id="pile3" className="pile-column"></div>
+              <div id="pile4" className="pile-column"></div>
+              <div id="pile5" className="pile-column"></div>
+              <div id="pile6" className="pile-column"></div>
+              <div id="pile7" className="pile-column"></div>
+          </div>
       </div>
     );
   }

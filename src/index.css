@@ -3,12 +3,25 @@ html,body{
     height: 100%;
 }
 
+.pile-column{
+    display: flex;
+    border: 1px solid black;
+    height: 400px;
+    border-radius: 5px;
+    width: 140px ;
+}
+
+.piles-area{
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-evenly;
+}
+
 .pile{
     display: flex;
     flex-direction: row;
-    width: 100%;
-
     justify-content: space-between;
+    width: 100%;
 }
 
 .flex-wrap{
@@ -16,15 +29,12 @@ html,body{
 }
 
 .deck{
-    display: flex;
     width: 100%;
-    justify-content: space-between;
-    /* flex-wrap: wrap; */
     height: 240px;
-    /* width: 300px; */
 }
 
 .card{
+    margin-right: 10px;
     cursor: pointer;
     height: 240px;
     width: 140px;

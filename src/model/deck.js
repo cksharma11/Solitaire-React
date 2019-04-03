@@ -1,24 +1,33 @@
 import cards from "../data/cards";
 import lodash from "lodash";
 
-class Deck{
-    constructor(){
-        this.cards = cards;
-    }
+class Deck {
+  constructor() {
+    this.cards = cards;
+  }
 
-    shuffleDeck(){
-        return this.cards = lodash.shuffle(this.cards);
-    }
+  shuffleDeck() {
+    return (this.cards = lodash.shuffle(this.cards));
+  }
 
-    drawACard(){
-        const card = lodash.last(this.cards);
-        this.cards.pop();
-        return card;
-    }
+  drawACard() {
+    const card = lodash.last(this.cards);
+    this.cards.pop();
+    return card;
+  }
 
-    getDeck(){
-        return this.cards;
+  getDeck() {
+    return this.cards;
+  }
+
+  createInitialPiles() {
+    const piles = {};
+    this.shuffleDeck();
+    for (let count = 1; count < 8; count++) {
+      piles[count] = this.cards.splice(0, count);
     }
+    return piles;
+  }
 }
 
 export default Deck;
