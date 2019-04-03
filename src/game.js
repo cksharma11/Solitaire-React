@@ -25,7 +25,8 @@ class Game extends React.Component {
                 {DECK_UNICODE}
             </div>
             <div 
-                id="available-card" 
+                onDragStart={this.drag}
+                id={this.state.availaleCard.type+"_"+this.state.availaleCard.color+"_"+this.state.availaleCard.number} 
                 style={{"color":this.state.availaleCard.color}} 
                 draggable 
                 className="card">
@@ -34,10 +35,10 @@ class Game extends React.Component {
           </div>
 
           <div className="flex-wrap">
-            <div id="suit1" className="card" />
-            <div id="suit2" className="card" />
-            <div id="suit3" className="card" />
-            <div id="suit4" className="card" />
+            <div id="suit1" className="card" onDrop={this.drop} onDragOver={this.allowDrop}/>
+            <div id="suit2" className="card" onDrop={this.drop} onDragOver={this.allowDrop}/>
+            <div id="suit3" className="card" onDrop={this.drop} onDragOver={this.allowDrop}/>
+            <div id="suit4" className="card" onDrop={this.drop} onDragOver={this.allowDrop}/>
           </div>
         </div>
         <div className="piles-area">
@@ -63,8 +64,14 @@ class Game extends React.Component {
 
   createPileView(pile){
     const view = pile.map((card,index) =>{
+        const id = `${card.type}_${card.color}_${card.number}`;
         if(index === 0) {
          return <div 
+                    key={id}
+                    id={id}
+                    onDragStart={this.drag}
+                    onDrop={this.drop} 
+                    onDragOver={this.allowDrop}
                     draggable 
                     style={ {"color" : card.color } } 
                     className="card adjustable-card">
@@ -72,6 +79,7 @@ class Game extends React.Component {
                 </div>
         }
         return <div 
+                    id={id}
                     className="card adjustable-card">
                     {DECK_UNICODE}
                 </div>
@@ -82,6 +90,21 @@ class Game extends React.Component {
   drawACard() {
     const card = this.deck.drawACard();
     return this.setState({ availaleCard: card });
+  }
+
+  allowDrop(event) {
+    event.preventDefault();
+  }
+  
+  drag(event) {
+    event.dataTransfer.setData("text", event.target.id);
+  }
+  
+  drop(event) {
+    event.preventDefault();
+    const data = event.dataTransfer.getData("text");
+    console.log(data)
+    event.target.appendChild(document.getElementById(data));
   }
 }
 
