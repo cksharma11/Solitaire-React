@@ -28,6 +28,13 @@ class Deck {
     }
     return piles;
   }
+
+  isDraggable(draggedCard, inPlaceCard) {
+    return (
+      draggedCard.number === inPlaceCard.number - 1 &&
+      draggedCard.color !== inPlaceCard.color
+    );
+  }
 }
 
 export default Deck;
