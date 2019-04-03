@@ -30,6 +30,9 @@ class Deck {
   }
 
   isDraggable(draggedCard, inPlaceCard) {
+    //   console.log(draggedCard, inPlaceCard);
+      console.log(draggedCard.number === inPlaceCard.number - 1 &&
+        draggedCard.color !== inPlaceCard.color)
     return (
       draggedCard.number === inPlaceCard.number - 1 &&
       draggedCard.color !== inPlaceCard.color

@@ -25,7 +25,7 @@ class Game extends React.Component {
                 {DECK_UNICODE}
             </div>
             <div 
-                onDragStart={this.drag}
+                onDragStart={this.drag.bind(this)}
                 id={this.state.availaleCard.type+"_"+this.state.availaleCard.color+"_"+this.state.availaleCard.number} 
                 style={{"color":this.state.availaleCard.color}} 
                 draggable 
@@ -35,10 +35,10 @@ class Game extends React.Component {
           </div>
 
           <div className="flex-wrap">
-            <div id="suit1" className="card" onDrop={this.drop} onDragOver={this.allowDrop}/>
-            <div id="suit2" className="card" onDrop={this.drop} onDragOver={this.allowDrop}/>
-            <div id="suit3" className="card" onDrop={this.drop} onDragOver={this.allowDrop}/>
-            <div id="suit4" className="card" onDrop={this.drop} onDragOver={this.allowDrop}/>
+            <div id="suit1" className="card" onDrop={this.drop.bind(this)} onDragOver={this.allowDrop.bind(this)}/>
+            <div id="suit2" className="card" onDrop={this.drop.bind(this)} onDragOver={this.allowDrop.bind(this)}/>
+            <div id="suit3" className="card" onDrop={this.drop.bind(this)} onDragOver={this.allowDrop.bind(this)}/>
+            <div id="suit4" className="card" onDrop={this.drop.bind(this)} onDragOver={this.allowDrop.bind(this)}/>
           </div>
         </div>
         <div className="piles-area">
@@ -69,9 +69,9 @@ class Game extends React.Component {
          return <div 
                     key={id}
                     id={id}
-                    onDragStart={this.drag}
-                    onDrop={this.drop} 
-                    onDragOver={this.allowDrop}
+                    onDragStart={this.drag.bind(this)}
+                    onDrop={this.drop.bind(this)} 
+                    onDragOver={this.allowDrop.bind(this)}
                     draggable 
                     style={ {"color" : card.color } } 
                     className="card adjustable-card">
@@ -93,18 +93,30 @@ class Game extends React.Component {
   }
 
   allowDrop(event) {
-    event.preventDefault();
+    this.inPlaceCard = this.createCardJson(event.target.id);
+    if(this.deck.isDraggable(this.draggedCard, this.inPlaceCard)){
+        event.preventDefault();
+    }
   }
   
   drag(event) {
+    this.draggedCard = this.createCardJson(event.target.id);
     event.dataTransfer.setData("text", event.target.id);
   }
   
   drop(event) {
     event.preventDefault();
     const data = event.dataTransfer.getData("text");
-    console.log(data)
     event.target.appendChild(document.getElementById(data));
+  }
+
+  createCardJson(eventID){
+    //   console.log(eventID);
+    return {
+        type : eventID.split("_")[0],
+        color : eventID.split("_")[1],
+        number : +eventID.split("_")[2],
+    }
   }
 }
 
