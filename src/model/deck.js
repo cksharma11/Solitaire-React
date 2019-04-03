@@ -3,11 +3,21 @@ import lodash from "lodash";
 
 class Deck{
     constructor(){
-        this.deck = cards;
+        this.cards = cards;
     }
 
     shuffleDeck(){
-        return lodash.shuffle(this.deck);
+        return this.cards = lodash.shuffle(this.cards);
+    }
+
+    drawACard(){
+        const card = lodash.last(this.cards);
+        this.cards.pop();
+        return card;
+    }
+
+    getDeck(){
+        return this.cards;
     }
 }
 

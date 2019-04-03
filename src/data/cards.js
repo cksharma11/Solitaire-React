@@ -61,19 +61,19 @@ const cards = [
     },
     {
       "type": "spade",
-      "number": "jack",
+      "number": "11",
       "color": "black",
       "unicode": "\u{1F0AB}"
     },
     {
       "type": "spade",
-      "number": "queen",
+      "number": "12",
       "color": "black",
       "unicode": "\u{1F0AD}"
     },
     {
       "type": "spade",
-      "number": "king",
+      "number": "13",
       "color": "black",
       "unicode": "\u{1F0AE}"
     },
@@ -139,19 +139,19 @@ const cards = [
     },
     {
       "type": "club",
-      "number": "jack",
+      "number": "11",
       "color": "black",
       "unicode": "\u{1F0DB}"
     },
     {
       "type": "club",
-      "number": "queen",
+      "number": "12",
       "color": "black",
       "unicode": "\u{1F0DD}"
     },
     {
       "type": "club",
-      "number": "king",
+      "number": "13",
       "color": "black",
       "unicode": "\u{1F0DE}"
     },
@@ -217,19 +217,19 @@ const cards = [
     },
     {
       "type": "diamond",
-      "number": "jack",
+      "number": "11",
       "color": "red",
       "unicode": "\u{1F0CB}"
     },
     {
       "type": "diamond",
-      "number": "queen",
+      "number": "12",
       "color": "red",
       "unicode": "\u{1F0CD}"
     },
     {
       "type": "diamond",
-      "number": "king",
+      "number": "13",
       "color": "red",
       "unicode": "\u{1F0CE}"
     },
@@ -295,19 +295,19 @@ const cards = [
     },
     {
       "type": "heart",
-      "number": "jack",
+      "number": "11",
       "color": "red",
       "unicode":  "\u{1F0BB}"
     },
     {
       "type": "heart",
-      "number": "queen",
+      "number": "12",
       "color": "red",
       "unicode": "\u{1F0BD}"
     },
     {
       "type": "heart",
-      "number": "king",
+      "number": "13",
       "color": "red",
       "unicode": "\u{1F0BE}"
     }
