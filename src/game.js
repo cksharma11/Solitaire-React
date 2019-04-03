@@ -11,19 +11,25 @@ class Game extends React.Component {
   }
 
   render() {
-    return this.createDeckView();
+    return this.createGameView();
   }
 
-  createDeckView() {
+  createGameView() {
     return (
       <div className="deck">
         <div className="pile">
           <div className="flex-wrap">
-            <div onClick={this.drawACard.bind(this)} className="card">
-              {DECK_UNICODE}
+            <div 
+                onClick={this.drawACard.bind(this)} 
+                className="card">
+                {DECK_UNICODE}
             </div>
-            <div id="available-card" style={{"color":this.state.availaleCard.color}} draggable className="card">
-              {this.state.availaleCard.unicode}
+            <div 
+                id="available-card" 
+                style={{"color":this.state.availaleCard.color}} 
+                draggable 
+                className="card">
+                {this.state.availaleCard.unicode}
             </div>
           </div>
 
@@ -35,24 +41,40 @@ class Game extends React.Component {
           </div>
         </div>
         <div className="piles-area">
-              <div id="pile1" className="pile-column">{this.createPileView(this.state.piles[1])}</div>
-              <div id="pile2" className="pile-column">{this.createPileView(this.state.piles[2])}</div>
-              <div id="pile3" className="pile-column">{this.createPileView(this.state.piles[3])}</div>
-              <div id="pile4" className="pile-column">{this.createPileView(this.state.piles[4])}</div>
-              <div id="pile5" className="pile-column">{this.createPileView(this.state.piles[5])}</div>
-              <div id="pile6" className="pile-column">{this.createPileView(this.state.piles[6])}</div>
-              <div id="pile7" className="pile-column">{this.createPileView(this.state.piles[7])}</div>
-          </div>
+            {this.createPilesView()}
+        </div>
       </div>
     );
   }
 
+  createPilesView(){
+      const element = [];
+      for(let index = 1; index < 8; index++){
+        element.push(
+            <div 
+                id={"pile"+{index}} 
+                className="pile-column">
+                {this.createPileView(this.state.piles[index])}
+            </div>
+        );
+      }
+      return element;
+  }
+
   createPileView(pile){
     const view = pile.map((card,index) =>{
-        if(index == 0) {
-         return <div draggable style={{"color":card.color}} className="card adjustable-card">{card.unicode}</div>
+        if(index === 0) {
+         return <div 
+                    draggable 
+                    style={ {"color" : card.color } } 
+                    className="card adjustable-card">
+                    {card.unicode}
+                </div>
         }
-        return <div className="card adjustable-card">{DECK_UNICODE}</div>
+        return <div 
+                    className="card adjustable-card">
+                    {DECK_UNICODE}
+                </div>
     })
     return view.reverse();
   } 
