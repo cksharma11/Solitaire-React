@@ -23,7 +23,7 @@ class Game extends React.Component {
             <div onClick={this.drawACard.bind(this)} className="card">
               {DECK_UNICODE}
             </div>
-            <div id="available-card" draggable className="card">
+            <div id="available-card" style={{"color":this.state.availaleCard.color}} draggable className="card">
               {this.state.availaleCard.unicode}
             </div>
           </div>
@@ -40,7 +40,8 @@ class Game extends React.Component {
   }
 
   drawACard() {
-    return this.setState({ availaleCard: this.deck.drawACard() });
+    const card = this.deck.drawACard();
+    return this.setState({ availaleCard: card });
   }
 }
 
