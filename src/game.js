@@ -35,17 +35,24 @@ class Game extends React.Component {
           </div>
         </div>
         <div className="piles-area">
-              <div id="pile1" className="pile-column">{this.state.piles[1].map(card=>card.unicode)}</div>
-              <div id="pile2" className="pile-column">{this.state.piles[2].map(card=>card.unicode)}</div>
-              <div id="pile3" className="pile-column">{this.state.piles[3].map(card=>card.unicode)}</div>
-              <div id="pile4" className="pile-column">{this.state.piles[4].map(card=>card.unicode)}</div>
-              <div id="pile5" className="pile-column">{this.state.piles[5].map(card=>card.unicode)}</div>
-              <div id="pile6" className="pile-column">{this.state.piles[6].map(card=>card.unicode)}</div>
-              <div id="pile7" className="pile-column">{this.state.piles[7].map(card=>card.unicode)}</div>
+              <div id="pile1" className="pile-column">{this.createPileView(this.state.piles[1])}</div>
+              <div id="pile2" className="pile-column">{this.createPileView(this.state.piles[2])}</div>
+              <div id="pile3" className="pile-column">{this.createPileView(this.state.piles[3])}</div>
+              <div id="pile4" className="pile-column">{this.createPileView(this.state.piles[4])}</div>
+              <div id="pile5" className="pile-column">{this.createPileView(this.state.piles[5])}</div>
+              <div id="pile6" className="pile-column">{this.createPileView(this.state.piles[6])}</div>
+              <div id="pile7" className="pile-column">{this.createPileView(this.state.piles[7])}</div>
           </div>
       </div>
     );
   }
+
+  createPileView(pile){
+     const view = pile.map(card => 
+         <div draggable style={{"color":card.color}} className="card">{card.unicode}</div>
+     )
+     return view;
+  } 
 
   drawACard() {
     const card = this.deck.drawACard();
