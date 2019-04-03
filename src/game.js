@@ -48,10 +48,13 @@ class Game extends React.Component {
   }
 
   createPileView(pile){
-     const view = pile.map(card => 
-         <div draggable style={{"color":card.color}} className="card">{card.unicode}</div>
-     )
-     return view;
+    const view = pile.map((card,index) =>{
+        if(index == 0) {
+         return <div draggable style={{"color":card.color}} className="card adjustable-card">{card.unicode}</div>
+        }
+        return <div className="card adjustable-card">{DECK_UNICODE}</div>
+    })
+    return view.reverse();
   } 
 
   drawACard() {
