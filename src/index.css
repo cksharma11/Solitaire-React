@@ -4,7 +4,9 @@ html,body{
 }
 
 .pile-column{
+    font-size: 85px;
     display: flex;
+    flex-direction: column;
     border: 1px solid black;
     height: 400px;
     border-radius: 5px;

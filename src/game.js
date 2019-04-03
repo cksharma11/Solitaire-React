@@ -7,8 +7,7 @@ class Game extends React.Component {
   constructor(props) {
     super(props);
     this.deck = new Deck();
-    this.availaleCard = this.deck.drawACard();
-    this.state = { availaleCard: this.availaleCard };
+    this.state = { availaleCard: this.deck.drawACard(), piles: this.deck.createInitialPiles() };
   }
 
   render() {
@@ -35,14 +34,14 @@ class Game extends React.Component {
             <div id="suit4" className="card" />
           </div>
         </div>
-        <div class="piles-area">
-              <div id="pile1" className="pile-column"></div>
-              <div id="pile2" className="pile-column"></div>
-              <div id="pile3" className="pile-column"></div>
-              <div id="pile4" className="pile-column"></div>
-              <div id="pile5" className="pile-column"></div>
-              <div id="pile6" className="pile-column"></div>
-              <div id="pile7" className="pile-column"></div>
+        <div className="piles-area">
+              <div id="pile1" className="pile-column">{this.state.piles[1].map(card=>card.unicode)}</div>
+              <div id="pile2" className="pile-column">{this.state.piles[2].map(card=>card.unicode)}</div>
+              <div id="pile3" className="pile-column">{this.state.piles[3].map(card=>card.unicode)}</div>
+              <div id="pile4" className="pile-column">{this.state.piles[4].map(card=>card.unicode)}</div>
+              <div id="pile5" className="pile-column">{this.state.piles[5].map(card=>card.unicode)}</div>
+              <div id="pile6" className="pile-column">{this.state.piles[6].map(card=>card.unicode)}</div>
+              <div id="pile7" className="pile-column">{this.state.piles[7].map(card=>card.unicode)}</div>
           </div>
       </div>
     );
