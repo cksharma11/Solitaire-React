@@ -103,18 +103,20 @@ class Game extends React.Component {
   drag(event) {
     try{
         this.belowCardID = (event.target.parentElement.children[event.target.parentElement.children.length-2].id)
-    }catch{ console.log("Single child element") };
+    }catch{};
     this.draggedCard = this.createCardJson(event.target.id);
     event.dataTransfer.setData("text", event.target.id);
   }
   
   drop(event) {
     event.preventDefault();
-    const belowCard = this.createCardJson(this.belowCardID);
-    const cardData = cards.filter(card=>{
-        return card.type === belowCard.type && card.number === ""+belowCard.number;
-    })
-    this.makeCardDragAndDroppale(cardData);
+    try{
+        const belowCard = this.createCardJson(this.belowCardID);
+        const cardData = cards.filter(card=>{
+            return card.type === belowCard.type && card.number === ""+belowCard.number;
+        })
+        this.makeCardDragAndDroppale(cardData);
+    }catch{}
     const data = event.dataTransfer.getData("text");
     event.target.appendChild(document.getElementById(data));
   }
