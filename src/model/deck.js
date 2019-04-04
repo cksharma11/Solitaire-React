@@ -4,6 +4,7 @@ import lodash from "lodash";
 class Deck {
   constructor() {
     this.cards = cards;
+    this.piles = this.createInitialPiles();
   }
 
   shuffleDeck() {
@@ -34,6 +35,10 @@ class Deck {
       draggedCard.number === inPlaceCard.number - 1 &&
       draggedCard.color !== inPlaceCard.color
     );
+  }
+
+  getPiles(){
+      return this.piles;
   }
 }
 

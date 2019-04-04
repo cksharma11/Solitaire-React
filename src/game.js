@@ -9,7 +9,7 @@ class Game extends React.Component {
   constructor(props) {
     super(props);
     this.deck = new Deck();
-    this.state = { availaleCard: this.deck.drawACard(), piles: this.deck.createInitialPiles() };
+    this.state = { availaleCard: this.deck.drawACard(), piles: this.deck.getPiles() };
   }
 
   render() {
@@ -55,7 +55,7 @@ class Game extends React.Component {
       for(let index = 1; index < 8; index++){
         element.push(
             <div 
-                id={"pile"+{index}} 
+                id={"pile_"+index} 
                 className="pile-column">
                 {this.createPileView(this.state.piles[index])}
             </div>
