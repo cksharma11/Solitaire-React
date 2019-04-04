@@ -1,6 +1,7 @@
 import Deck from "./model/deck";
 import React from "react";
 import cards from "./data/cards";
+import Suit from "./components/suit";
 
 const DECK_UNICODE = "\u{1F0A0}";
 
@@ -36,10 +37,10 @@ class Game extends React.Component {
           </div>
 
           <div className="flex-wrap">
-            <div id="suit1" className="card" onDrop={this.drop.bind(this)} onDragOver={this.allowDrop.bind(this)}/>
-            <div id="suit2" className="card" onDrop={this.drop.bind(this)} onDragOver={this.allowDrop.bind(this)}/>
-            <div id="suit3" className="card" onDrop={this.drop.bind(this)} onDragOver={this.allowDrop.bind(this)}/>
-            <div id="suit4" className="card" onDrop={this.drop.bind(this)} onDragOver={this.allowDrop.bind(this)}/>
+            <Suit id="suit1" className="card" onDrop={this.drop.bind(this)} onDragOver={this.allowDrop.bind(this)}/>
+            <Suit id="suit2" className="card" onDrop={this.drop.bind(this)} onDragOver={this.allowDrop.bind(this)}/>
+            <Suit id="suit3" className="card" onDrop={this.drop.bind(this)} onDragOver={this.allowDrop.bind(this)}/>
+            <Suit id="suit4" className="card" onDrop={this.drop.bind(this)} onDragOver={this.allowDrop.bind(this)}/>
           </div>
         </div>
         <div className="piles-area">
