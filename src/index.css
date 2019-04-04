@@ -51,4 +51,5 @@ html,body{
 
 .adjustable-card{
     margin-top:-115px;
+    position: relative;
 }

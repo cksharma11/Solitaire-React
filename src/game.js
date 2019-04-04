@@ -1,5 +1,6 @@
 import Deck from "./model/deck";
 import React from "react";
+import cards from "./data/cards";
 
 const DECK_UNICODE = "\u{1F0A0}";
 
@@ -100,23 +101,39 @@ class Game extends React.Component {
   }
   
   drag(event) {
+      console.log("ADSAFSF")
+    this.belowCardID = (event.target.parentElement.children[event.target.parentElement.children.length-2].id)
     this.draggedCard = this.createCardJson(event.target.id);
     event.dataTransfer.setData("text", event.target.id);
   }
   
   drop(event) {
     event.preventDefault();
+    const belowCard = this.createCardJson(this.belowCardID);
+    const cardData = cards.filter(card=>{
+        return card.type === belowCard.type && card.number == ""+belowCard.number;
+    })
+    this.makeCardDraggableAndDroppale(cardData);
     const data = event.dataTransfer.getData("text");
     event.target.appendChild(document.getElementById(data));
   }
 
   createCardJson(eventID){
-    //   console.log(eventID);
     return {
         type : eventID.split("_")[0],
         color : eventID.split("_")[1],
         number : +eventID.split("_")[2],
     }
+  }
+
+  makeCardDragAndDroppale(cardData){
+    document.getElementById(this.belowCardID).innerHTML = cardData[0].unicode;
+    document.getElementById(this.belowCardID).draggable = "true";
+    document.getElementById(this.belowCardID).style.color = cardData[0].color;
+
+    document.getElementById(this.belowCardID).ondragstart = this.drag.bind(this);
+    document.getElementById(this.belowCardID).ondrop = this.drop.bind(this);
+    document.getElementById(this.belowCardID).ondragdver= this.allowDrop.bind(this);
   }
 }
 
