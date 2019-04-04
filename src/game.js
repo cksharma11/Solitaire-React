@@ -101,8 +101,9 @@ class Game extends React.Component {
   }
   
   drag(event) {
-      console.log("ADSAFSF")
-    this.belowCardID = (event.target.parentElement.children[event.target.parentElement.children.length-2].id)
+    try{
+        this.belowCardID = (event.target.parentElement.children[event.target.parentElement.children.length-2].id)
+    }catch{ console.log("Single child element") };
     this.draggedCard = this.createCardJson(event.target.id);
     event.dataTransfer.setData("text", event.target.id);
   }
@@ -111,9 +112,9 @@ class Game extends React.Component {
     event.preventDefault();
     const belowCard = this.createCardJson(this.belowCardID);
     const cardData = cards.filter(card=>{
-        return card.type === belowCard.type && card.number == ""+belowCard.number;
+        return card.type === belowCard.type && card.number === ""+belowCard.number;
     })
-    this.makeCardDraggableAndDroppale(cardData);
+    this.makeCardDragAndDroppale(cardData);
     const data = event.dataTransfer.getData("text");
     event.target.appendChild(document.getElementById(data));
   }
