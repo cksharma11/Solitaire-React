@@ -12,9 +12,7 @@ class Deck {
   }
 
   drawACard() {
-    const card = lodash.last(this.cards);
-    this.cards.pop();
-    return card;
+    return this.cards.pop();
   }
 
   getDeck() {

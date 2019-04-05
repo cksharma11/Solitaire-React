@@ -2,6 +2,8 @@ import Deck from "./model/deck";
 import React from "react";
 import cards from "./data/cards";
 import Suit from "./components/suit";
+import Card from "./components/card";
+import WastePile from "./components/wastePile";
 
 const DECK_UNICODE = "\u{1F0A0}";
 
@@ -21,19 +23,16 @@ class Game extends React.Component {
       <div className="deck">
         <div className="pile">
           <div className="flex-wrap">
-            <div 
+            <WastePile 
                 onClick={this.drawACard.bind(this)} 
-                className="card">
-                {DECK_UNICODE}
-            </div>
-            <div 
+                className="card" />
+            <Card 
                 onDragStart={this.drag.bind(this)}
                 id={this.state.availaleCard.type+"_"+this.state.availaleCard.color+"_"+this.state.availaleCard.number} 
-                style={{"color":this.state.availaleCard.color}} 
-                draggable 
-                className="card">
-                {this.state.availaleCard.unicode}
-            </div>
+                style={this.state.availaleCard.color} 
+                draggable="true"
+                className="card"
+                unicode={this.state.availaleCard.unicode} />
           </div>
 
           <div className="flex-wrap">
