@@ -1,312 +1,312 @@
 const cards = [
     {
-      "type": "spade",
+      "suit": "spade",
       "number": "1",
       "color": "black",
       "unicode": "\u{1F0A1}"
     },
     {
-      "type": "spade",
+      "suit": "spade",
       "number": "2",
       "color": "black",
       "unicode": "\u{1F0A2}"
     },
     {
-      "type": "spade",
+      "suit": "spade",
       "number": "3",
       "color": "black",
       "unicode": "\u{1F0A3}"
     },
     {
-      "type": "spade",
+      "suit": "spade",
       "number": "4",
       "color": "black",
       "unicode": "\u{1F0A4}"
     },
     {
-      "type": "spade",
+      "suit": "spade",
       "number": "5",
       "color": "black",
       "unicode": "\u{1F0A5}"
     },
     {
-      "type": "spade",
+      "suit": "spade",
       "number": "6",
       "color": "black",
       "unicode": "\u{1F0A6}"
     },
     {
-      "type": "spade",
+      "suit": "spade",
       "number": "7",
       "color": "black",
       "unicode": "\u{1F0A7}"
     },
     {
-      "type": "spade",
+      "suit": "spade",
       "number": "8",
       "color": "black",
       "unicode": "\u{1F0A8}"
     },
     {
-      "type": "spade",
+      "suit": "spade",
       "number": "9",
       "color": "black",
       "unicode": "\u{1F0A9}"
     },
     {
-      "type": "spade",
+      "suit": "spade",
       "number": "10",
       "color": "black",
       "unicode": "\u{1F0AA}"
     },
     {
-      "type": "spade",
+      "suit": "spade",
       "number": "11",
       "color": "black",
       "unicode": "\u{1F0AB}"
     },
     {
-      "type": "spade",
+      "suit": "spade",
       "number": "12",
       "color": "black",
       "unicode": "\u{1F0AD}"
     },
     {
-      "type": "spade",
+      "suit": "spade",
       "number": "13",
       "color": "black",
       "unicode": "\u{1F0AE}"
     },
     {
-      "type": "club",
+      "suit": "club",
       "number": "1",
       "color": "black",
       "unicode": "\u{1F0D1}"
     },
     {
-      "type": "club",
+      "suit": "club",
       "number": "2",
       "color": "black",
       "unicode": "\u{1F0D2}"
     },
     {
-      "type": "club",
+      "suit": "club",
       "number": "3",
       "color": "black",
       "unicode": "\u{1F0D3}",
     },
     {
-      "type": "club",
+      "suit": "club",
       "number": "4",
       "color": "black",
       "unicode": "\u{1F0D4}"
     },
     {
-      "type": "club",
+      "suit": "club",
       "number": "5",
       "color": "black",
       "unicode": "\u{1F0D5}"
     },
     {
-      "type": "club",
+      "suit": "club",
       "number": "6",
       "color": "black",
       "unicode": "\u{1F0D6}"
     },
     {
-      "type": "club",
+      "suit": "club",
       "number": "7",
       "color": "black",
       "unicode": "\u{1F0D7}"
     },
     {
-      "type": "club",
+      "suit": "club",
       "number": "8",
       "color": "black",
       "unicode": "\u{1F0D8}"
     },
     {
-      "type": "club",
+      "suit": "club",
       "number": "9",
       "color": "black",
       "unicode": "\u{1F0D9}"
     },
     {
-      "type": "club",
+      "suit": "club",
       "number": "10",
       "color": "black",
       "unicode": "\u{1F0DA}"
     },
     {
-      "type": "club",
+      "suit": "club",
       "number": "11",
       "color": "black",
       "unicode": "\u{1F0DB}"
     },
     {
-      "type": "club",
+      "suit": "club",
       "number": "12",
       "color": "black",
       "unicode": "\u{1F0DD}"
     },
     {
-      "type": "club",
+      "suit": "club",
       "number": "13",
       "color": "black",
       "unicode": "\u{1F0DE}"
     },
     {
-      "type": "diamond",
+      "suit": "diamond",
       "number": "1",
       "color": "red",
       "unicode": "\u{1F0C1}"
     },
     {
-      "type": "diamond",
+      "suit": "diamond",
       "number": "2",
       "color": "red",
       "unicode": "\u{1F0C2}"
     },
     {
-      "type": "diamond",
+      "suit": "diamond",
       "number": "3",
       "color": "red",
       "unicode": "\u{1F0C3}"
     },
     {
-      "type": "diamond",
+      "suit": "diamond",
       "number": "4",
       "color": "red",
       "unicode": "\u{1F0C4}"
     },
     {
-      "type": "diamond",
+      "suit": "diamond",
       "number": "5",
       "color": "red",
       "unicode": "\u{1F0C5}"
     },
     {
-      "type": "diamond",
+      "suit": "diamond",
       "number": "6",
       "color": "red",
       "unicode": "\u{1F0C6}"
     },
     {
-      "type": "diamond",
+      "suit": "diamond",
       "number": "7",
       "color": "red",
       "unicode": "\u{1F0C7}"
     },
     {
-      "type": "diamond",
+      "suit": "diamond",
       "number": "8",
       "color": "red",
       "unicode": "\u{1F0C8}"
     },
     {
-      "type": "diamond",
+      "suit": "diamond",
       "number": "9",
       "color": "red",
       "unicode": "\u{1F0C9}"
     },
     {
-      "type": "diamond",
+      "suit": "diamond",
       "number": "10",
       "color": "red",
       "unicode": "\u{1F0CA}"
     },
     {
-      "type": "diamond",
+      "suit": "diamond",
       "number": "11",
       "color": "red",
       "unicode": "\u{1F0CB}"
     },
     {
-      "type": "diamond",
+      "suit": "diamond",
       "number": "12",
       "color": "red",
       "unicode": "\u{1F0CD}"
     },
     {
-      "type": "diamond",
+      "suit": "diamond",
       "number": "13",
       "color": "red",
       "unicode": "\u{1F0CE}"
     },
     {
-      "type": "heart",
+      "suit": "heart",
       "number": "1",
       "color": "red",
       "unicode": "\u{1F0B1}"
     },
     {
-      "type": "heart",
+      "suit": "heart",
       "number": "2",
       "color": "red",
       "unicode": "\u{1F0B2}"
     },
     {
-      "type": "heart",
+      "suit": "heart",
       "number": "3",
       "color": "red",
       "unicode": "\u{1F0B3}"
     },
     {
-      "type": "heart",
+      "suit": "heart",
       "number": "4",
       "color": "red",
       "unicode": "\u{1F0B4}"
     },
     {
-      "type": "heart",
+      "suit": "heart",
       "number": "5",
       "color": "red",
       "unicode": "\u{1F0B5}"
     },
     {
-      "type": "heart",
+      "suit": "heart",
       "number": "6",
       "color": "red",
       "unicode": "\u{1F0B6}"
     },
     {
-      "type": "heart",
+      "suit": "heart",
       "number": "7",
       "color": "red",
       "unicode": "\u{1F0B7}"
     },
     {
-      "type": "heart",
+      "suit": "heart",
       "number": "8",
       "color": "red",
       "unicode": "\u{1F0B8}"
     },
     {
-      "type": "heart",
+      "suit": "heart",
       "number": "9",
       "color": "red",
       "unicode": "\u{1F0B9}"
     },
     {
-      "type": "heart",
+      "suit": "heart",
       "number": "10",
       "color": "red",
       "unicode": "\u{1F0BA}"
     },
     {
-      "type": "heart",
+      "suit": "heart",
       "number": "11",
       "color": "red",
       "unicode":  "\u{1F0BB}"
     },
     {
-      "type": "heart",
+      "suit": "heart",
       "number": "12",
       "color": "red",
       "unicode": "\u{1F0BD}"
     },
     {
-      "type": "heart",
+      "suit": "heart",
       "number": "13",
       "color": "red",
       "unicode": "\u{1F0BE}"
