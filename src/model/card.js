@@ -13,6 +13,10 @@ class Card{
     getColor(){
         return this.color;
     }
+
+    getNumber(){
+        return +this.number;
+    }
 }
 
 export default Card;

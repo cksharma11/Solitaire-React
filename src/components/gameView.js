@@ -68,6 +68,7 @@ class GameView extends React.Component {
 
   shiftPileCards(numberOfCardsToShift, currentPileNumber, nextPileNumber) {
     this.game.shiftPileCards(numberOfCardsToShift, currentPileNumber, nextPileNumber);
+    if(this.game.piles[currentPileNumber].getFaceUpCards().length > 0 ) return;
     this.game.piles[currentPileNumber].addFaceUpCard();
   }
 }

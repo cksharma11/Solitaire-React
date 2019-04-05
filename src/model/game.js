@@ -17,28 +17,33 @@ class Game {
     return this.piles;
   }
 
-  getFoundations(){
+  getFoundations() {
     return this.foundations;
   }
 
-  drawCard(){
+  drawCard() {
     this.wastePile.drawCard();
   }
 
   shiftPileCards(numberOfCards, currentPile, nextPile) {
-    const draggedCards = this.piles[currentPile].removeFaceUpCards(
-      numberOfCards
-    );
+    const draggedCards = this.piles[currentPile].removeFaceUpCards(numberOfCards);
     this.piles[nextPile].addFaceUpCards(draggedCards);
   }
 
-  addCardToFoundation(card, foundation){
+  addCardToFoundation(card, foundation) {
     this.foundations[foundation].addCard(card);
   }
 
-  addWastePileCardToPile(pileNumber){
+  addWastePileCardToPile(pileNumber) {
     const card = this.wastePile.removeTopCard();
     this.piles[pileNumber].addFaceUpCards([card]);
+  }
+
+  isDraggableCard(draggedCard, inPlaceCard) {
+    return (
+      draggedCard.getNumber() === inPlaceCard.getNumber() - 1 &&
+      draggedCard.getColor() === inPlaceCard.getColor()
+    );
   }
 }
 

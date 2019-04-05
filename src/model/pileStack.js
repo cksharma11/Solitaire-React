@@ -19,7 +19,7 @@ class PileStack {
   }
 
   removeFaceUpCards(numberOfCards) {
-    return this.faceUpCards.splice(0, numberOfCards);
+    return this.faceUpCards.splice(-numberOfCards);
   }
 
   addFaceUpCard() {
