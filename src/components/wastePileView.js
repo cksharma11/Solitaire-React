@@ -1,6 +1,6 @@
 import React from "react";
 import CardView from "./cardView";
-const FACE_DOWN_UNICODE = "\u{1F0A0}";
+import FACE_DOWN_UNICODE from "../constant/constants";
 
 class WastePileView extends React.Component {
   render() {
