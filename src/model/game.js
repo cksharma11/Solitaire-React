@@ -42,7 +42,7 @@ class Game {
   isDraggableCard(draggedCard, inPlaceCard) {
     return (
       draggedCard.getNumber() === inPlaceCard.getNumber() - 1 &&
-      draggedCard.getColor() === inPlaceCard.getColor()
+      draggedCard.getColor() !== inPlaceCard.getColor()
     );
   }
 }

@@ -1,3 +1,5 @@
+import Card from "./card";
+
 class PileStack {
   constructor(faceUpCards, faceDownCards) {
     this.faceUpCards = faceUpCards;
@@ -23,6 +25,10 @@ class PileStack {
   }
 
   addFaceUpCard() {
+    if(this.faceDownCards.length === 0){
+      this.faceDownCards.push(Card.getEmptyCard());
+      return;
+    }
     this.faceUpCards.push(this.faceDownCards.pop());
   }
 }

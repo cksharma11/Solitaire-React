@@ -17,6 +17,15 @@ class Card{
     getNumber(){
         return +this.number;
     }
+
+    static getEmptyCard(){
+        return new Card({
+            suit:"none",
+            number:"0",
+            color:"grey",
+            unicode:"\u{1F0A0}"
+        })
+    }
 }
 
 export default Card;
