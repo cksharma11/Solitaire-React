@@ -18,6 +18,10 @@ class Card{
         return +this.number;
     }
 
+    getSuit(){
+        return this.suit;
+    }
+
     static getEmptyCard(){
         return new Card({
             suit:"none",

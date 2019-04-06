@@ -19,6 +19,14 @@ class WastePile {
     this.drawCards.unshift(this.wasteCards.pop());
   }
 
+  getDrawCards(){
+    return this.drawCards;
+  }
+
+  shiftDrawCards(){
+    return this.drawCards.shift();
+  }
+
   removeTopCard(pileNumber) {
     return this.drawCards.pop();
   }

@@ -1,6 +1,6 @@
 import React from "react";
 import CardView from "./cardView";
-import FACE_DOWN_UNICODE from "../constant/constants";
+import { FACE_DOWN_UNICODE } from "../constant/constants";
 
 class WastePileView extends React.Component {
   render() {
@@ -25,13 +25,17 @@ class WastePileView extends React.Component {
   }
 
   createFaceUpCardView() {
+    const card= this.props.wastePile.getFaceUpCard();
+    const id =`waste-pile___${card.suit}_${card.color}_${card.number}_${
+      card.unicode
+    }`;
     return (
       <CardView
         card={this.props.wastePile.getFaceUpCard()}
         onDragStart={this.props.onDragStart}
         onDragOver={this.props.onDragOver}
         onDrop={this.props.onDrop}
-        id="face-up-card"
+        id={id}
         className="card stable-card"
       />
     );

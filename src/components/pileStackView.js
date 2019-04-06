@@ -1,6 +1,6 @@
 import React from "react";
 import CardView from "./cardView";
-import FACE_DOWN_UNICODE from "../constant/constants";
+import { FACE_DOWN_UNICODE } from "../constant/constants";
 
 class PileStackView extends React.Component {
   render() {
@@ -35,7 +35,7 @@ class PileStackView extends React.Component {
 
   createFaceDownCardView(pile, pileNumber) {
     const view = pile.getFaceDownCards().map((card, index) => {
-      if(card.getNumber() === 0){
+      if (card.getNumber() === 0) {
         const id = this.getID(pileNumber, card, 1, index);
         return this.createCardView(card, id);
       }
@@ -56,9 +56,9 @@ class PileStackView extends React.Component {
     );
   }
 
-  getID(pileNumber, card, count, index){
-    return `${pileNumber}_${count - index}_${card.suit}_${card.color}_${
-      card.number
+  getID(pileNumber, card, count, index) {
+    return `pile_${pileNumber}_${count - index}_${card.suit}_${card.color}_${card.number}_${
+      card.unicode
     }`;
   }
 }

@@ -2,6 +2,8 @@ import React from "react";
 import WastePileView from "./wastePileView";
 import PileStackView from "./pileStackView";
 import FoundationView from "./foundationView";
+import Card from "../model/card";
+import { PLACE_PILE, PLACE_FOUNDATION, PLACE_WASTE_PILE } from "../constant/constants";
 
 class GameView extends React.Component {
   constructor(props) {
@@ -53,23 +55,72 @@ class GameView extends React.Component {
 
   drop(event) {
     event.preventDefault();
-    const data = event.dataTransfer.getData("text");
-    const numberOfCardsToShift = +data.split("_")[1];
-    const currentPileNumber = +data.split("_")[0];
-    const nextPileNumber = +event.target.id.split("_")[0];
+    const source = event.dataTransfer.getData("text");
+    const destination = event.target.id;
 
-    if (data === "face-up-card") {
-      this.game.addWastePileCardToPile(nextPileNumber);
-    } else {
-      this.shiftPileCards(numberOfCardsToShift, currentPileNumber, nextPileNumber);
+    const draggedCard = this.getCard(source);
+    const inPlaceCard = this.getCard(destination);
+
+    if (this.isDestinationFoundation(destination)) {
+      const foundation = this.splitAndTake(destination, 1);
+      if (this.isSourceWastePile(source)) {
+        this.game.shiftCardToFoundation(draggedCard, foundation, PLACE_WASTE_PILE);
+      }
+      if (this.isSourcePile(source)) {
+        const destinationPile = +this.splitAndTake(source, 1);
+        this.game.shiftCardToFoundation(draggedCard, foundation, PLACE_PILE, destinationPile);
+      }
     }
+
+    
+    if (this.isDestinationPile(destination)) {
+      if (!this.game.isDraggableCard(draggedCard, inPlaceCard)) return;
+      if (this.isSourceWastePile(source)) {
+        const pileNumber = +this.splitAndTake(destination, 1);
+        this.game.shiftCardFromWastePileToPile(pileNumber);
+      }
+      if (this.isSourcePile(source)) {
+        const numOfCards = +this.splitAndTake(source, 2);
+        const sourcePile = +this.splitAndTake(source, 1);
+        const destinationPile = +this.splitAndTake(destination, 1);
+        this.game.shiftCardFromPileToPile(numOfCards, sourcePile, destinationPile);
+      }
+    }
+
     this.setState({ game: this.game });
   }
 
-  shiftPileCards(numberOfCardsToShift, currentPileNumber, nextPileNumber) {
-    this.game.shiftPileCards(numberOfCardsToShift, currentPileNumber, nextPileNumber);
-    if(this.game.piles[currentPileNumber].getFaceUpCards().length > 0 ) return;
-    this.game.piles[currentPileNumber].addFaceUpCard();
+  isSourceWastePile(source) {
+    return this.getPlace(source) === PLACE_WASTE_PILE;
+  }
+
+  isSourcePile(source) {
+    return this.getPlace(source) === PLACE_PILE;
+  }
+
+  isDestinationFoundation(destination) {
+    return this.getPlace(destination) === PLACE_FOUNDATION;
+  }
+
+  isDestinationPile(destination) {
+    return this.isSourcePile(destination);
+  }
+
+  getPlace(id) {
+    return id.split("_")[0];
+  }
+
+  splitAndTake(data, count) {
+    return data.split("_")[count];
+  }
+
+  getCard(id) {
+    const suit = id.split("_")[3];
+    const color = id.split("_")[4];
+    const number = +id.split("_")[5];
+    const unicode = id.split("_")[6];
+
+    return new Card({ suit, color, number, unicode });
   }
 }
 
