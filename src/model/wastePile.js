@@ -16,6 +16,10 @@ class WastePile {
   }
 
   drawCard() {
+    if(this.wasteCards.length === 0) {
+      this.wasteCards = this.drawCards;
+      this.drawCards = [];
+    }
     this.drawCards.unshift(this.wasteCards.pop());
   }
 
