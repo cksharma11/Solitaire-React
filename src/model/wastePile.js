@@ -40,7 +40,7 @@ class WastePile {
     return this.drawCards.shift();
   }
 
-  removeTopCard(pileNumber) {
+  removeTopCard() {
     return this.drawCards.pop();
   }
 }
