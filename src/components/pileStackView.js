@@ -1,6 +1,7 @@
 import React from "react";
 import CardView from "./cardView";
-import { FACE_DOWN_UNICODE } from "../constant/constants";
+// import { FACE_DOWN_UNICODE } from "../constant/constants";
+import FaceDownCard from "./faceDownCard";
 
 class PileStackView extends React.Component {
   render() {
@@ -39,7 +40,7 @@ class PileStackView extends React.Component {
         const id = this.getID(pileNumber, card, 1, index);
         return this.createCardView(card, id);
       }
-      return <div className="card adjustable-card">{FACE_DOWN_UNICODE}</div>;
+      return <FaceDownCard className="card adjustable-card"/>;
     });
     return view;
   }

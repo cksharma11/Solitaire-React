@@ -1,6 +1,6 @@
 import React from "react";
 import CardView from "./cardView";
-import { FACE_DOWN_UNICODE } from "../constant/constants";
+import FaceDownCard from "./faceDownCard";
 
 class WastePileView extends React.Component {
   render() {
@@ -18,9 +18,7 @@ class WastePileView extends React.Component {
 
   createFaceDownCardView() {
     return (
-      <div onClick={this.props.onClick} className="card stable-card">
-        {FACE_DOWN_UNICODE}
-      </div>
+      <FaceDownCard onClick={this.props.onClick} className="card stable-card"/>
     );
   }
 
