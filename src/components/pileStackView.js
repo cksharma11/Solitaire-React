@@ -2,6 +2,7 @@ import React from "react";
 import CardView from "./cardView";
 import FaceDownCard from "./faceDownCard";
 import Pile from "./pile";
+import PileContainer from "./pileContainer";
 
 class PileStackView extends React.Component {
   render() {
@@ -13,7 +14,7 @@ class PileStackView extends React.Component {
       return this.createSinglePileView(this.props.piles[index], index);
     });
 
-    return <div className="pile-area">{allPiles}</div>;
+    return <PileContainer allPiles={allPiles} />;
   }
 
   createSinglePileView(pile, pileNumber) {
