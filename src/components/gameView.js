@@ -60,7 +60,7 @@ class GameView extends React.Component {
 
     const draggedCard = this.getCard(source);
     const inPlaceCard = this.getCard(destination);
-
+    if(this.isDestinationWastePile(destination)) return;
     return this.isDestinationFoundation(destination)
       ? this.shiftCardToFoundation(source, destination, draggedCard)
       : this.shiftCardToPile(source, destination, draggedCard, inPlaceCard);
@@ -107,6 +107,10 @@ class GameView extends React.Component {
 
   isDestinationPile(destination) {
     return this.isSourcePile(destination);
+  }
+
+  isDestinationWastePile(destination){
+    return this.getPlace(destination) === PLACE_WASTE_PILE;  
   }
 
   getPlace(id) {

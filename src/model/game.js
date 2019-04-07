@@ -78,6 +78,12 @@ class Game {
       card.getSuit() === foundation.getTopCard().getSuit()
     );
   }
+
+  hasWon() {
+    return Object.keys(this.foundations).reduce(
+      (foundation, acc) => (acc += this.foundations[foundation].length)
+    ) === 52;
+  }
 }
 
 export default Game;
