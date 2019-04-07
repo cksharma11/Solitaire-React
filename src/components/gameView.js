@@ -61,32 +61,35 @@ class GameView extends React.Component {
     const draggedCard = this.getCard(source);
     const inPlaceCard = this.getCard(destination);
 
-    if (this.isDestinationFoundation(destination)) {
-      const foundation = this.splitAndTake(destination, 1);
-      if (this.isSourceWastePile(source)) {
-        this.game.shiftCardToFoundation(draggedCard, foundation, PLACE_WASTE_PILE);
-      }
-      if (this.isSourcePile(source)) {
-        const destinationPile = +this.splitAndTake(source, 1);
-        this.game.shiftCardToFoundation(draggedCard, foundation, PLACE_PILE, destinationPile);
-      }
-    }
+    return this.isDestinationFoundation(destination)
+      ? this.shiftCardToFoundation(source, destination, draggedCard)
+      : this.shiftCardToPile(source, destination, draggedCard, inPlaceCard);
+  }
 
-    
-    if (this.isDestinationPile(destination)) {
-      if (!this.game.isDraggableCard(draggedCard, inPlaceCard)) return;
-      if (this.isSourceWastePile(source)) {
-        const pileNumber = +this.splitAndTake(destination, 1);
-        this.game.shiftCardFromWastePileToPile(pileNumber);
-      }
-      if (this.isSourcePile(source)) {
-        const numOfCards = +this.splitAndTake(source, 2);
-        const sourcePile = +this.splitAndTake(source, 1);
-        const destinationPile = +this.splitAndTake(destination, 1);
-        this.game.shiftCardFromPileToPile(numOfCards, sourcePile, destinationPile);
-      }
+  shiftCardToFoundation(source, destination, draggedCard) {
+    const foundation = this.splitAndTake(destination, 1);
+    if (this.isSourceWastePile(source)) {
+      this.game.shiftCardToFoundation(draggedCard, foundation, PLACE_WASTE_PILE);
     }
+    if (this.isSourcePile(source)) {
+      const pileNum = +this.splitAndTake(source, 1);
+      this.game.shiftCardToFoundation(draggedCard, foundation, PLACE_PILE, pileNum);
+    }
+    this.setState({ game: this.game });
+  }
 
+  shiftCardToPile(source, destination, draggedCard, inPlaceCard) {
+    if (!this.game.isDraggableCard(draggedCard, inPlaceCard)) return;
+    if (this.isSourceWastePile(source)) {
+      const pileNumber = +this.splitAndTake(destination, 1);
+      this.game.shiftCardFromWastePileToPile(pileNumber);
+    }
+    if (this.isSourcePile(source)) {
+      const numOfCards = +this.splitAndTake(source, 2);
+      const sourcePile = +this.splitAndTake(source, 1);
+      const destinationPile = +this.splitAndTake(destination, 1);
+      this.game.shiftCardFromPileToPile(numOfCards, sourcePile, destinationPile);
+    }
     this.setState({ game: this.game });
   }
 
