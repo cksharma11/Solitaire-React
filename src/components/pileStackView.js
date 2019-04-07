@@ -35,7 +35,7 @@ class PileStackView extends React.Component {
 
   createFaceDownCardView(pile, pileNumber) {
     const view = pile.getFaceDownCards().map((card, index) => {
-      if (card.getNumber() === 0) {
+      if (card.getRank() === 0) {
         const id = this.getID(pileNumber, card, 1, index);
         return this.createCardView(card, id);
       }

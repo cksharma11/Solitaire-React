@@ -14,7 +14,7 @@ class Card{
         return this.color;
     }
 
-    getNumber(){
+    getRank(){
         return +this.number;
     }
 

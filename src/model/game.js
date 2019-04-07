@@ -64,16 +64,17 @@ class Game {
   }
 
   isDraggableCard(draggedCard, inPlaceCard) {
+    if (inPlaceCard.getRank() === 0 && draggedCard.getRank() === 13) return true;
     return (
-      draggedCard.getNumber() === inPlaceCard.getNumber() - 1 &&
+      draggedCard.getRank() === inPlaceCard.getRank() - 1 &&
       draggedCard.getColor() !== inPlaceCard.getColor()
     );
   }
 
   isAddableToFoundation(card, foundation) {
-    if (foundation.getTopCard().getNumber() === 0) return card.getNumber() === 1;
+    if (foundation.getTopCard().getRank() === 0) return card.getRank() === 1;
     return (
-      card.getNumber() === foundation.getTopCard().getNumber() + 1 &&
+      card.getRank() === foundation.getTopCard().getRank() + 1 &&
       card.getSuit() === foundation.getTopCard().getSuit()
     );
   }
