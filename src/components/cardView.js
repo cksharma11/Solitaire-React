@@ -13,7 +13,7 @@ class CardView extends React.Component {
         onDragOver={this.props.onDragOver}
         onDrop={this.props.onDrop}
         style={{ color: this.props.card.getColor() }}
-        className={this.props.className || "card"}
+        className={"card" + " " + this.props.className}
         id={this.props.id}
       >
         {this.props.card.getUnicode()}

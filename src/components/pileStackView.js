@@ -41,7 +41,7 @@ class PileStackView extends React.Component {
         const id = this.getID(pileNumber, card, 1, index);
         return this.createCardView(card, id);
       }
-      return <FaceDownCard className="card adjustable-card" />;
+      return <FaceDownCard className="card" />;
     });
     return view;
   }
@@ -50,6 +50,7 @@ class PileStackView extends React.Component {
     return (
       <CardView
         card={card}
+        className="faced-up-card"
         id={id}
         onDragStart={this.props.onDragStart}
         onDrop={this.props.onDrop}

@@ -1,21 +1,31 @@
 html,body{
   margin-left: 5%;
   width: 90%;
-  background: green;
+  background: rgb(8, 129, 99);
 }
 
 .card{
   height: 140px;
   width: 110px;
-  border: 1px solid black;
   font-size: 150px;
   text-align: center;
   border-radius: 4px;
-  background: rgb(226, 219, 154);
+  margin-right: 3px;
+  background: rgb(230, 224, 178);
   position: relative;
   margin-top: -90px;
   line-height: .8;
   user-select: none;
+  box-shadow: 0px 0px 2px 2px rgba(92, 88, 88, 0.712);
+  cursor: pointer;
+}
+
+.faced-up-card:hover{
+  margin-top: -95px;
+}
+
+.stable-card:hover{
+  margin-top: 0px;
 }
 
 .stable-card{

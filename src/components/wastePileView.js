@@ -34,7 +34,7 @@ class WastePileView extends React.Component {
         onDragOver={this.props.onDragOver}
         onDrop={this.props.onDrop}
         id={id}
-        className="card stable-card"
+        className="stable-card"
       />
     );
   }

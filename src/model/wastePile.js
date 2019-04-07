@@ -1,3 +1,5 @@
+import Card from "./card";
+
 class WastePile {
   constructor(cards) {
     this.wasteCards = cards;
@@ -17,10 +19,17 @@ class WastePile {
 
   drawCard() {
     if(this.wasteCards.length === 0) {
-      this.wasteCards = this.drawCards;
-      this.drawCards = [];
+      this.refillWasteCard();
     }
     this.drawCards.unshift(this.wasteCards.pop());
+  }
+
+  refillWasteCard(){
+    this.wasteCards = this.drawCards;
+    this.drawCards = [];
+    if(this.wasteCards.length === 0){
+      this.wasteCards.push(Card.getEmptyCard());
+    }
   }
 
   getDrawCards(){
