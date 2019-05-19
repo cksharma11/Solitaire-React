@@ -6,7 +6,7 @@ import Game from "./model/game";
 import WastePile from "./model/wastePile";
 import lodash from "lodash";
 import PileStack from "./model/pileStack";
-import GameView from "./components/gameView";
+import GameView from "./components/GameView/GameView";
 import Foundation from "./model/foundation";
 import "./index.css";
 

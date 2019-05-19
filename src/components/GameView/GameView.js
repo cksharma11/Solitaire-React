@@ -1,9 +1,9 @@
 import React from "react";
-import WastePileView from "./wastePileView";
-import PileStackView from "./pileStackView";
-import FoundationView from "./foundationView";
-import Card from "../model/card";
-import { PLACE_PILE, PLACE_FOUNDATION, PLACE_WASTE_PILE } from "../constant/constants";
+import WastePileView from "../WastePileView/WastePileView";
+import PileStackView from "../PileStackView/PileStackView";
+import FoundationView from "../FoundationView/FoundationView";
+import Card from "../../model/card";
+import { PLACE_PILE, PLACE_FOUNDATION, PLACE_WASTE_PILE } from "../../constant/constants";
 
 class GameView extends React.Component {
   constructor(props) {

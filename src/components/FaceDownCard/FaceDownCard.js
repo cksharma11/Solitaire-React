@@ -1,5 +1,5 @@
 import React from "react";
-import { FACE_DOWN_UNICODE } from "../constant/constants";
+import { FACE_DOWN_UNICODE } from "../../constant/constants";
 
 class FaceDownCard extends React.Component {
   render() {

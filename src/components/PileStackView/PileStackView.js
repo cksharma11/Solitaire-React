@@ -1,8 +1,8 @@
 import React from "react";
-import CardView from "./cardView";
-import FaceDownCard from "./faceDownCard";
-import Pile from "./pile";
-import PileContainer from "./pileContainer";
+import CardView from "../CardView/CardView";
+import FaceDownCard from "../FaceDownCard/FaceDownCard";
+import Pile from "../Pile/Pile";
+import PileContainer from "../PileContainer/PileContainer";
 
 class PileStackView extends React.Component {
   render() {

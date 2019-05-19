@@ -1,6 +1,6 @@
 import React from "react";
-import CardView from "./cardView";
-import FaceDownCard from "./faceDownCard";
+import CardView from "../CardView/CardView";
+import FaceDownCard from "../FaceDownCard/FaceDownCard";
 
 class WastePileView extends React.Component {
   render() {
@@ -17,16 +17,12 @@ class WastePileView extends React.Component {
   }
 
   createFaceDownCardView() {
-    return (
-      <FaceDownCard onClick={this.props.onClick} className="card stable-card"/>
-    );
+    return <FaceDownCard onClick={this.props.onClick} className="card stable-card" />;
   }
 
   createFaceUpCardView() {
-    const card= this.props.wastePile.getFaceUpCard();
-    const id =`waste-pile___${card.suit}_${card.color}_${card.number}_${
-      card.unicode
-    }`;
+    const card = this.props.wastePile.getFaceUpCard();
+    const id = `waste-pile___${card.suit}_${card.color}_${card.number}_${card.unicode}`;
     return (
       <CardView
         card={this.props.wastePile.getFaceUpCard()}
